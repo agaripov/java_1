@@ -9,6 +9,7 @@ public class ContactHelper extends HelperBase {
     public ContactHelper(FirefoxDriver wd) {
         super(wd);
     }
+
     public void returnContactPage() {
         click(By.linkText("home page"));
     }
@@ -28,4 +29,15 @@ public class ContactHelper extends HelperBase {
         click(By.name("add new"));
     }
 
+    public void initContactModification() {
+        click(By.xpath("(//td[8]/a/img)"));
+    }
+    public void submitContactModification() {
+        click(By.name("update"));
+    }
+    public void markContact(){ click(By.name("selected[]"));}
+
+    public void deleteContact(){
+        click(By.xpath("//input[@value='Delete']"));
+    }
 }
