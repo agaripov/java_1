@@ -5,7 +5,6 @@ public class Equality {
         String s1 = "firefox";
         String s2 = "fire" + "fox";
 
-        System.out.println(s1 == s2);
         System.out.println(s1.equals(s2));
     }
 }
