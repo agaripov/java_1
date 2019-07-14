@@ -11,7 +11,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void returnContactPage() {
-        click(By.linkText("home page"));
+        click(By.linkText("home"));
     }
 
     public void submitContactCreation() {
@@ -49,5 +49,9 @@ public class ContactHelper extends HelperBase {
     }
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int getGontactCount() {
+        return wd.findElements(By.name("selected[]")).size();
     }
 }
