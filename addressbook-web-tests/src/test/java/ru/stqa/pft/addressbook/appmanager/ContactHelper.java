@@ -35,7 +35,7 @@ public class ContactHelper extends HelperBase {
     public void submitContactModification() {
         click(By.name("update"));
     }
-    public void markContact(){ click(By.name("selected[]"));}
+    public void selectContact(int index){ wd.findElements(By.name("selected[]")).get(index).click();}
 
     public void deleteContact(){
         click(By.xpath("//input[@value='Delete']"));
@@ -51,7 +51,7 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public int getGontactCount() {
+    public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
 }

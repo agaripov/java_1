@@ -13,12 +13,12 @@ public class ContactModificationTest extends TestBase {
             app.getContactHelper().createContact(new ContactData("First name", "Last name", "Company", "Address"));
 
         }
-        int before = app.getContactHelper().getGontactCount();
+        int before = app.getContactHelper().getContactCount();
         app.getContactHelper().initContactModification();
         app.getContactHelper().fillContactForm(new ContactData("First name1", "Last name1", "Company1", "Address1"));
         app.getContactHelper().submitContactModification();
         app.getContactHelper().returnContactPage();
-        int after = app.getContactHelper().getGontactCount();
+        int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after, before);
     }
 }
