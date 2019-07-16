@@ -9,7 +9,7 @@ public class NavigationHelper extends HelperBase {
         super(wd);
     }
 
-    public void gotoGroupPage() {
+    public void GroupPage() {
         if (isElementPresent(new By.ByTagName("h1"))
                 && wd.findElement(new By.ByTagName("h1")).getText().equals("Groups")
                 && isElementPresent(By.name("new"))) {
@@ -18,11 +18,9 @@ public class NavigationHelper extends HelperBase {
         click(By.linkText("groups"));
     }
 
-    public void gotoHomePage(){
+    public void HomePage(){
         if (isElementPresent(By.id("maintable"))){
             return;
         }
         click(By.linkText("home"));}
-
-    public void closeAlert(){wd.switchTo().alert().accept();}
 }
