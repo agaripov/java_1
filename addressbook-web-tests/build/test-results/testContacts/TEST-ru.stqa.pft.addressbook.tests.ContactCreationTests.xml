@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.ContactCreationTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-07-20T16:43:15" hostname="GARIPOV_A" time="20.718">
+<testsuite name="ru.stqa.pft.addressbook.tests.ContactCreationTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-07-20T19:13:16" hostname="GARIPOV_A" time="43.39">
   <properties/>
-  <testcase name="testContactBadCreation" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="3.82"/>
-  <testcase name="testContactCreation[0](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="2.906"/>
-  <testcase name="testContactCreation[1](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="3.349"/>
-  <testcase name="testContactCreation[2](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="3.288"/>
-  <testcase name="testContactCreation[3](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="3.405"/>
-  <testcase name="testContactCreation[4](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="3.761"/>
+  <testcase name="testContactBadCreation" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="7.07"/>
+  <testcase name="testContactCreation[0](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="5.335"/>
+  <testcase name="testContactCreation[1](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="6.184"/>
+  <testcase name="testContactCreation[2](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="7.196"/>
+  <testcase name="testContactCreation[3](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="7.973"/>
+  <testcase name="testContactCreation[4](ContactData{id='0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="9.365"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[Security framework of XStream not initialized, XStream is probably vulnerable.
 ]]></system-err>
