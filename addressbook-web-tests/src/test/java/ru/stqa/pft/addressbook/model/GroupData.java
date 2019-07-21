@@ -14,15 +14,19 @@ import java.util.Objects;
 @Entity
 @Table (name = "group_list")
 public class GroupData {
+
     @XStreamOmitField
     @Id
     @Column(name = "group_id")
     private int id = Integer.MAX_VALUE;
+
     @Column(name = "group_name")
     private String name;
+
     @Column(name = "group_header")
     @Type(type = "text")
     private String header;
+
     @Column(name = "group_footer")
     @Type(type = "text")
     private String footer;
