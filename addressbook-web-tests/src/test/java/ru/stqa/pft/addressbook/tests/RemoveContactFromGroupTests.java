@@ -46,7 +46,8 @@ public class RemoveContactFromGroupTests extends TestBase{
         app.goTo().HomePage();
         app.contact().contactGroupPage(contactRemove);
         app.contact().removeFromGroup(contactRemove);
-
+        app.db().updateContact(contactRemove);
+        app.db().updateGroup(groupRemove);
         assertThat(contactRemove.getGroups(), not(contactRemove));
         assertThat(groupRemove.getContacts(), not(groupRemove));
     }
