@@ -11,11 +11,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.MatchResult;
 
 public class ApplicationManager {
-    private final Properties properties;
 
+    private final Properties properties;
     private WebDriver wd;
 
     private String browser;
@@ -23,6 +22,8 @@ public class ApplicationManager {
     private FtpHelper ftp;
     private MailHelper mailHelper;
     private JamesHelper jamesHelper;
+    private DbHelper dbHelper;
+
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -30,8 +31,10 @@ public class ApplicationManager {
     }
 
     public void init() throws IOException {
+        dbHelper = new DbHelper();
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
     }
 
     public void stop() {
@@ -55,6 +58,7 @@ public class ApplicationManager {
         return registrationHelper;
     }
 
+
     public FtpHelper ftp() {
         if (ftp == null) {
             ftp = new FtpHelper(this);
@@ -64,10 +68,10 @@ public class ApplicationManager {
 
     public WebDriver getDriver() {
         if (wd == null) {
-            if (browser.equals(BrowserType.FIREFOX)) {
-                wd = new FirefoxDriver();
-            } else if (browser.equals(BrowserType.CHROME)) {
+            if (browser.equals(BrowserType.CHROME)) {
                 wd = new ChromeDriver();
+            } else if (browser.equals(BrowserType.FIREFOX)) {
+                wd = new FirefoxDriver();
             } else if (browser.equals(BrowserType.IE)) {
                 wd = new InternetExplorerDriver();
             }
@@ -79,15 +83,27 @@ public class ApplicationManager {
 
     public MailHelper mail() {
         if (mailHelper == null) {
-            mailHelper = new MailHelper(this);
+            mailHelper = new  MailHelper(this);
         }
         return mailHelper;
     }
 
-    public JamesHelper james(){
-        if (jamesHelper == null){
-            jamesHelper = new JamesHelper(this);
+    public JamesHelper james() {
+        if (jamesHelper == null) {
+            jamesHelper = new  JamesHelper(this);
         }
-      return jamesHelper;
+        return jamesHelper;
+    }
+
+    public AdminHelper admin(){
+        return new AdminHelper(this);
+    }
+
+    public DbHelper db() {
+        return dbHelper;
+    }
+
+    public UserHelper user(){
+        return new UserHelper(this);
     }
 }
