@@ -41,4 +41,6 @@ public class ContactAddToGroupTests extends TestBase {
         assertThat(contactAfter.getGroups(), hasItem(groupBefore));
         assertThat(groupAfter.getContacts(), hasItem(contactBefore));
     }
+
+
 }

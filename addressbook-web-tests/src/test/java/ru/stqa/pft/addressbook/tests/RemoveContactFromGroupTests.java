@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -9,7 +10,7 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
 
-import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RemoveContactFromGroupTests extends TestBase{
@@ -44,16 +45,11 @@ public class RemoveContactFromGroupTests extends TestBase{
         ContactData contactRemove = contacts.iterator().next();
         GroupData groupRemove = groups.iterator().next();
         app.goTo().HomePage();
+
         app.contact().contactGroupPage(contactRemove);
         app.contact().removeFromGroup(contactRemove);
 
-        app.db().updateContact(contactRemove);
-        app.db().updateGroup(groupRemove);
-
-        ContactData afterContact = app.db().contacts().iterator().next();
-        GroupData afterGroup= app.db().groups().iterator().next();
-
-        assertThat(afterContact.getGroups(), not(groupRemove));
-        assertThat(afterGroup.getContacts(), not(contactRemove));
+        assertThat(contactRemove.getGroups(), CoreMatchers.not(hasItem(groupRemove)));
+        assertThat(groupRemove.getContacts(), CoreMatchers.not(hasItem(contactRemove)));
     }
 }
